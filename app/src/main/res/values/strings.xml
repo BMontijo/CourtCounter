@@ -2,7 +2,7 @@
     <!-- Name of the app -->
     <string name="app_name">Court Counter</string>
     <!-- Label for home team score -->
-    <string name="home">Home</string>
+    <string name="home_hint">Home</string>
     <!-- Starting home team score -->
     <string name="hScore">0</string>
     <!-- Label for 3 point button -->
@@ -12,7 +12,7 @@
     <!-- Label for free throw button -->
     <string name="freeThrow">Free Throw</string>
     <!-- Label for visitor team score -->
-    <string name="visitor">Visitor</string>
+    <string name="visitor_hint">Visitor</string>
     <!-- Starting visior team score -->
     <string name="vScore">0</string>
     <!-- Label for reset button -->
@@ -24,8 +24,12 @@
     <!-- Subject line for sharing message -->
     <string name="share_subject">Here are the scores for tonight\'s game.</string>
     <!-- First part of body of sharing scores, ex: Home: 92 -->
-    <string name="share_body1">Home: <xliff:g id="home_score" example="92">%d</xliff:g></string>
+    <string name="share_body1"><xliff:g id="home_name" example="Home">%s</xliff:g>: <xliff:g id="home_score" example="92">%d</xliff:g></string>
     <!-- Second part of body of sharing scores, ex: Visitor: 80 -->
-    <string name="share_body2">Visitor: <xliff:g id="visitor_score" example="80">%d</xliff:g></string>
+    <string name="share_body2"><xliff:g id="visitor_name" example="Visitor">%s</xliff:g>: <xliff:g id="visitor_score" example="80">%d</xliff:g></string>
+    <!-- Generic "Home" team name -->
+    <string name="generic_home">Home</string>
+    <!-- Generic "Visitor" team name -->
+    <string name="generic_visitor">Visitor</string>
 
 </resources>

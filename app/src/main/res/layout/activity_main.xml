@@ -18,16 +18,17 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <TextView
+            <EditText
+                android:id="@+id/home_team"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
                 android:padding="4dp"
-                android:text="@string/home"
+                android:hint="@string/home_hint"
                 android:textColor="#616161"
-                android:textSize="14sp" />
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/team_a_score"
@@ -81,16 +82,17 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <TextView
+            <EditText
+                android:id="@+id/visitor_team"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
                 android:padding="4dp"
-                android:text="@string/visitor"
+                android:hint="@string/visitor_hint"
                 android:textColor="#616161"
-                android:textSize="14sp" />
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/team_b_score"

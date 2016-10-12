@@ -6,18 +6,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     // variables to keep track of scores of teams
-    int scoreHome = 0;
-    int scoreVisitor = 0;
+    private int scoreHome = 0;
+    private int scoreVisitor = 0;
+
+    // variables to hold team names
+    private EditText homeTeam;
+    private EditText visitorTeam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // intantiate variables
+        homeTeam = (EditText) findViewById(R.id.home_team);
+        visitorTeam = (EditText) findViewById(R.id.visitor_team);
     }
 
 
@@ -118,11 +127,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void shareScores (View v) {
+        // check if home team name was entered
+        if (homeTeam.getText().toString().equals("")) {
+            // no name entered - assign generic
+            homeTeam.setText(getString(R.string.generic_home));
+        }
+        // check if visitor team name was entered
+        if (visitorTeam.getText().toString().equals("")) {
+            // no name entered - assign generic
+            visitorTeam.setText(getString(R.string.generic_visitor));
+        }
         // string for subject of share
         String subject = getString(R.string.share_subject);
         // string for body of share message
-        String body = String.format("%s\n\n", getString(R.string.share_body1, scoreHome));
-        body = body + getString(R.string.share_body2, scoreVisitor) + "\n\n";
+        String body = String.format("%s\n\n", getString(R.string.share_body1, homeTeam.getText().toString(), scoreHome));
+        body = body + getString(R.string.share_body2, visitorTeam.getText().toString(), scoreVisitor) + "\n\n";
         // create intent for email
         Intent shareScore = new Intent(Intent.ACTION_SEND);
         shareScore.setType("text/plain");
