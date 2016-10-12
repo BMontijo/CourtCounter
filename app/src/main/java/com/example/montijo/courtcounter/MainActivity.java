@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
      * Increase the score for Team A by 1 point.
      */
     public void addOneForTeamA(View v) {
-        scoreHome = scoreHome + 1;
+        scoreHome++;
         displayForTeamA(scoreHome);
     }
 
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
      * Increase the score for Team B by 1 point.
      */
     public void addOneForTeamB(View v) {
-        scoreVisitor = scoreVisitor + 1;
+        scoreVisitor++;
         displayForTeamB(scoreVisitor);
     }
 
