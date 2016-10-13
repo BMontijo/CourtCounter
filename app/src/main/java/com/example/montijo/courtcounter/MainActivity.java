@@ -124,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
         //update score displays
         displayForTeamA(scoreHome);
         displayForTeamB(scoreVisitor);
+
+        // reset team name variables
+        homeTeam.setText("");
+        visitorTeam.setText("");
     }
 
     public void shareScores (View v) {
