@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -153,7 +154,11 @@ public class MainActivity extends AppCompatActivity {
         shareScore.putExtra(Intent.EXTRA_TEXT, body);
         // make sure app installed to handle intent
         if (shareScore.resolveActivity(getPackageManager()) != null) {
+            // start sharing intent
             startActivity(shareScore);
+        } else {
+            // present toast stating error
+            Toast.makeText(MainActivity.this, R.string.share_error, Toast.LENGTH_SHORT).show();
         }
     }
 }

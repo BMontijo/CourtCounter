@@ -31,5 +31,7 @@
     <string name="generic_home">Home</string>
     <!-- Generic "Visitor" team name -->
     <string name="generic_visitor">Visitor</string>
+    <!-- Toast message if no sharing app found -->
+    <string name="share_error">No application found for sharing.</string>
 
 </resources>
