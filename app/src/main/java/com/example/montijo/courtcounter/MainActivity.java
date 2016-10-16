@@ -132,25 +132,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void shareScores (View v) {
+        // string for home team share
+        String shareHomeTeam = homeTeam.getText().toString();
+        // string for visitor team share
+        String shareVisitorTeam = visitorTeam.getText().toString();
         // check if home team name was entered
-        if (homeTeam.getText().toString().equals("")) {
+        if (shareHomeTeam.equals("")) {
             // no name entered - assign generic
-            homeTeam.setText(getString(R.string.generic_home));
+            shareHomeTeam = getString(R.string.generic_home);
         }
         // check if visitor team name was entered
-        if (visitorTeam.getText().toString().equals("")) {
+        if (shareVisitorTeam.equals("")) {
             // no name entered - assign generic
-            visitorTeam.setText(getString(R.string.generic_visitor));
+            shareVisitorTeam = getString(R.string.generic_visitor);
         }
-        // string for subject of share
-        String subject = getString(R.string.share_subject);
-        // string for body of share message
-        String body = String.format("%s\n\n", getString(R.string.share_body1, homeTeam.getText().toString(), scoreHome));
-        body = body + getString(R.string.share_body2, visitorTeam.getText().toString(), scoreVisitor) + "\n\n";
+        // start the body of share message
+        String body = getString(R.string.share_subject);
+        // add team names and scores to share message
+        body = body + "\n" + String.format("%s\n\n", getString(R.string.share_body1, shareHomeTeam, scoreHome));
+        body = body + getString(R.string.share_body2, shareVisitorTeam, scoreVisitor) + "\n\n";
         // create intent for email
         Intent shareScore = new Intent(Intent.ACTION_SEND);
         shareScore.setType("text/plain");
-        shareScore.putExtra(Intent.EXTRA_SUBJECT, subject);
         shareScore.putExtra(Intent.EXTRA_TEXT, body);
         // make sure app installed to handle intent
         if (shareScore.resolveActivity(getPackageManager()) != null) {
